@@ -1,7 +1,7 @@
 object sv<%= appname %>: Tsv<%= appname %>
   OldCreateOrder = False
   OnCreate = ServiceCreate
-  DisplayName = 'svApp'
+  DisplayName = 'sv<%= appname %>'
   BeforeInstall = ServiceBeforeInstall
   AfterInstall = ServiceAfterInstall
   AfterUninstall = ServiceAfterUninstall

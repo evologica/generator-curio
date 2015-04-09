@@ -107,7 +107,7 @@ begin
     if not PersistenceManager.DefaultMetaModel.ImplementationOK(lErros) then
     begin
       lErros.SaveToFile(IncludeTrailingPathDelimiter(ExtractFileDir(ParamStr(0))) + 'ModelErrors.log');
-      raise Exception.Create('Erro ao inicializar o serviço, verifique o arquivo ModelErrors.log para detalhes.');
+      raise Exception.Create('Error initalizing service, check ModelErrors.log for details.');
     end;
   finally
     lErros.Free;

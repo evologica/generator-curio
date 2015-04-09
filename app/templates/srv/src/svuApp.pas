@@ -45,7 +45,7 @@ begin
   Result := ServiceController;
 end;
 
-procedure TsvApp.LerConfiguracao;
+procedure Tsv<%= appname %>.LerConfiguracao;
 begin
   if gSystem.HasParam('Application.Service') then
   begin
