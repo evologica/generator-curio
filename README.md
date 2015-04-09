@@ -1,8 +1,8 @@
-# [Yeoman](http://yeoman.io) Curió Generator
+# Curió Generator
 
 ```{r, engine='bash', count_lines}
-npm install -g yo
-npm install -g generator-curio
+npm install yo
+npm install generator-curio
 
 ```
 
