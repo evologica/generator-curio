@@ -12,7 +12,6 @@ cd app
 yo curio
 
 ```
-
 ├── srv .......................................... backend dev files
 │   ├── mdl ...................................... domain model files
 │   │   └── model.uml
@@ -36,6 +35,7 @@ yo curio
         ├── itu .................................. interface form units
         │   └── ituAppMain.pas
         └── App.dpk .............................. delphi win32 main project 
+```
 
 ## Generating form interfaces (it's)
 ```bash
