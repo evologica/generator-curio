@@ -1,0 +1,27 @@
+// Version Information Resource File
+1 VERSIONINFO
+FILEVERSION 1, 0, 8, 12
+
+
+PRODUCTVERSION 1, 0, 8, 12
+FILEFLAGSMASK VS_FFI_FILEFLAGSMASK
+//FILEFLAGS VS_FF_DEBUG | VS_FF_PRERELEASE
+FILEOS VOS__WINDOWS32
+FILETYPE VFT_APP
+{
+BLOCK "StringFileInfo"
+{
+BLOCK "041604E4"
+{
+VALUE "CompanyName", "CONEXO Projetos e Sistemas Ltda\000"
+VALUE "FileVersion", "1.0.8.12\000"
+VALUE "ProductName", "GED - Gestão Eletrônica de Documentos\000"
+VALUE "ProductVersion", "1.0.8.12\000"
+VALUE "LegalCopyright", "Copyright (C) CONEXO Projetos e Sistemas Ltda. Todos os direitos reservados\000"
+}
+}
+BLOCK "VarFileInfo"
+{
+VALUE "Translation", 1046, 1252
+}
+}

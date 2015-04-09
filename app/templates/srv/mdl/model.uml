@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XPD:PROJECT xmlns:XPD="http://www.staruml.com" version="1">
+<XPD:HEADER>
+<XPD:SUBUNITS>
+<XPD:UNIT owner="TWgSUrcMv0ujdFrd5aY5XgAA" index="0">..\..\..\..\..\..\..\Program Files (x86)\StarUML\modules\staruml-conexo\frameworks\Conexo\FrameworkModel.unt</XPD:UNIT>
+</XPD:SUBUNITS>
+<XPD:PROFILES>
+<XPD:PROFILE>Conexo</XPD:PROFILE>
+<XPD:PROFILE>DBMappings</XPD:PROFILE>
+<XPD:PROFILE>SecurityMappings</XPD:PROFILE>
+<XPD:PROFILE>UserDisplayNames</XPD:PROFILE>
+<XPD:PROFILE>UMLStandard</XPD:PROFILE>
+</XPD:PROFILES>
+</XPD:HEADER>
+<XPD:BODY>
+<XPD:OBJ name="DocumentElement" type="UMLProject" guid="PDlRD88OxkGf/3Xv4io2YwAA">
+<XPD:ATTR name="Title" type="string">Model</XPD:ATTR>
+<XPD:OBJCOLL name="OwnedElements">
+<XPD:OBJ name="OwnedElements" type="UMLModel" guid="TWgSUrcMv0ujdFrd5aY5XgAA">
+<XPD:ATTR name="Name" type="string">AppModel</XPD:ATTR>
+<XPD:REF name="Namespace">PDlRD88OxkGf/3Xv4io2YwAA</XPD:REF>
+<XPD:OBJCOLL name="OwnedElements">
+<XPD:OBJ name="OwnedElements" type="UMLModel" guid="25fjMIBlyk62BSBsoenUvwAA">
+<XPD:ATTR name="Name" type="string">ProjectModel</XPD:ATTR>
+<XPD:REF name="Namespace">TWgSUrcMv0ujdFrd5aY5XgAA</XPD:REF>
+<XPD:OBJCOLL name="OwnedDiagrams">
+<XPD:OBJ name="OwnedDiagrams" type="UMLClassDiagram" guid="It1ENKOha0SRgPjMdjmzgwAA">
+<XPD:ATTR name="Name" type="string">Main</XPD:ATTR>
+<XPD:ATTR name="DefaultDiagram" type="boolean">True</XPD:ATTR>
+<XPD:REF name="DiagramOwner">25fjMIBlyk62BSBsoenUvwAA</XPD:REF>
+<XPD:OBJ name="DiagramView" type="UMLClassDiagramView" guid="NnpxR3ebCkGswqhMHPngvwAA">
+<XPD:REF name="Diagram">It1ENKOha0SRgPjMdjmzgwAA</XPD:REF>
+</XPD:OBJ>
+</XPD:OBJ>
+</XPD:OBJCOLL>
+</XPD:OBJ>
+</XPD:OBJCOLL>
+</XPD:OBJ>
+</XPD:OBJCOLL>
+</XPD:OBJ>
+</XPD:BODY>
+</XPD:PROJECT>

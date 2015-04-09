@@ -1,0 +1,33 @@
+{
+  "name": "generator-curio",
+  "version": "0.1.0",
+  "description": "Yeoman generator",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "conexo/generator-curio",
+  "author": {
+    "name": "Conexo",
+    "email": "conexo@conexops.com.br",
+    "url": "https://github.com/conexo"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app",
+    "itu",
+    "sucu",
+    "report"
+  ],
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^0.19.0",
+    "chalk": "^1.0.0",
+    "yosay": "^1.0.2"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  }
+}
