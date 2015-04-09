@@ -1,4 +1,4 @@
-> [Yeoman](http://yeoman.io) Curió Generator
+# [Yeoman](http://yeoman.io) Curió Generator
 
 ```{r, engine='bash', count_lines}
 npm install -g yo
