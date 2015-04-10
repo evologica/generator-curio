@@ -54,7 +54,7 @@ module.exports = yeoman.generators.Base.extend({
 
     var dpkfile = this.config.get('dpkfile');
     var hook = 'contains';
-    var insert = '  ' + ('itu' + this.name) + ' in \'' + 'itu\\' + this.name + '.pas' + '\' {' + ('it' + this.name) + '}';
+    var insert = '  ' + ('itu' + this.name) + ' in \'' + 'itu\\itu' + this.name + '.pas' + '\' {' + ('it' + this.name) + '}';
     
     this.log(this.destinationPath(dpkfile));
 

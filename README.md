@@ -57,7 +57,7 @@ yo curio:itu CadastrarPessoa
                 └── ituCadastrarPessoa.dfm
 ```
 
-it also includes the new form as a dependcy in your dpk project:
+it also includes the new form as a dependency in your dpk project:
 
 ```pascal
 contains
