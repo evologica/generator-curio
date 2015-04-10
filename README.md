@@ -1,11 +1,14 @@
 # Curió Generator
 
+## Instalation
+
 ```{r, engine='bash', count_lines}
-npm install yo
-npm install generator-curio
+npm install -g yo
+npm install -g generator-curio
 
 ```
 
+## Generating new Curio Application
 ```{r, engine='bash', count_lines}
 mkdir app
 cd app
@@ -33,7 +36,7 @@ yo curio
 │       ├── mainmenu.xml ......................... win32 GUI menu design
 │       └── VersionInfo.rc .......................
 └── cli .......................................... front-end dev files
-    └── win ...................................... front-end win32
+    └── win ...................................... front-end win32 source code
         ├── itu .................................. interface form units
         │   └── ituAppMain.pas
         └── App.dpk .............................. delphi win32 main project 
@@ -52,6 +55,14 @@ yo curio:itu CadastrarPessoa
             └── itu
                 ├── ituCadastrarPessoa.pas 
                 └── ituCadastrarPessoa.dfm
+```
+
+it also includes the new form as a dependcy in your dpk project:
+
+```pascal
+contains
+    ituCadastrarPessoa in 'itu\ituCadastrarPessoa.pas' {itCadastrarPessoa},
+    ...
 ```
 
 ## Generating reports (rit's)

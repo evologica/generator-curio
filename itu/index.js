@@ -42,9 +42,11 @@ module.exports = yeoman.generators.Base.extend({
 
   writing: function () {
 
+    var ituPath = this.context.path +'/' + 'itu' + this.name + '.pas';
+
     this.template(
       this.templatePath('ituInterfaceForm.pas'),
-      this.destinationPath(this.context.path +'/' + 'itu' + this.name + '.pas'),
+      this.destinationPath(ituPath),
       this.context
     );
 
@@ -53,6 +55,20 @@ module.exports = yeoman.generators.Base.extend({
       this.destinationPath(this.context.path +'/' + 'itu' + this.name + '.dfm'),
       this.context
     );
+
+    var dpkfile = this.config.get('dpkfile');
+    var hook = 'contains';
+    var insert = '  ' + ('itu' + this.name) + ' in \'' + 'itu\\' + this.name + '.pas' + '\' {' + ('it' + this.name) + '}';
+    
+    this.log(this.destinationPath(dpkfile));
+
+    this.conflicter.force = true;
+
+    var file = this.fs.read(this.destinationPath(dpkfile));
+
+    if (file.indexOf(('itu' + this.name)) === -1) {
+      this.fs.write(this.destinationPath(dpkfile), file.replace(hook, hook +'\n' + insert + ','));
+    }
 
   }
 });

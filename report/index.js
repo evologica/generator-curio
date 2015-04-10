@@ -52,5 +52,18 @@ module.exports = yeoman.generators.Base.extend({
       this.context
     );
 
+    var dpkfile = this.config.get('dpkfile');
+    var hook = 'contains';
+    var insert = '  ' + ('itu' + this.name) + ' in \'' + 'itu\\' + this.name + '.pas' + '\' {' + ('it' + this.name) + '}';
+    
+    this.log(this.destinationPath(dpkfile));
+
+    this.conflicter.force = true;
+
+    var file = this.fs.read(this.destinationPath(dpkfile));
+
+    if (file.indexOf(('itu' + this.name)) === -1) {
+      this.fs.write(this.destinationPath(dpkfile), file.replace(hook, hook +'\n' + insert + ','));
+    }
   }
 });

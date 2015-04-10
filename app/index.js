@@ -43,9 +43,13 @@ module.exports = yeoman.generators.Base.extend({
 
       // SERVER
 
+      var dprfile = 'srv/src/' + this.context.appname + '.dpr';
+
+      this.config.set('dprfile', dprfile);
+
       this.template(
         this.templatePath('srv/src/app.dpr'),
-        this.destinationPath('srv/src/' + this.context.appname + '.dpr'),
+        this.destinationPath(dprfile),
         this.context
       );
 
@@ -110,12 +114,15 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath('/srv/sql')
       );
 
-
       // CLI
+
+      var dpkfile = 'cli/win/' + this.context.appname + '.dpk';
+
+      this.config.set('dpkfile', dpkfile);
 
       this.template(
         this.templatePath('cli/win/cli.dpk'),
-        this.destinationPath('cli/win/' + this.context.appname + '.dpk'),
+        this.destinationPath(dpkfile),
         this.context
       );
 
@@ -124,6 +131,8 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath('cli/win/itu/itu' + this.context.appname + 'Main.pas'),
         this.context
       );
+
+      this.config.save();
 
     },
 
