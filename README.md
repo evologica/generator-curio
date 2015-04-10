@@ -1,20 +1,22 @@
 # Curió Generator
 
+A Yeoman generator to scaffold a Curió framework application.
+
 ## Instalation
 
-```{r, engine='bash', count_lines}
+```shell
 npm install -g yo
 npm install -g generator-curio
-
 ```
 
-## Generating new Curio Application
-```{r, engine='bash', count_lines}
+## Generating a new Curió Application
+```shell
 mkdir app
 cd app
 yo curio
-
 ```
+
+It generates the below structure:
 
 ```
 ├── srv .......................................... backend dev files
@@ -44,9 +46,8 @@ yo curio
 ```
 
 ## Generating form interfaces (it's)
-```bash
+```shell
 yo curio:itu CadastrarPessoa
-
 ```
 
 ```
@@ -56,8 +57,7 @@ yo curio:itu CadastrarPessoa
                 ├── ituCadastrarPessoa.pas 
                 └── ituCadastrarPessoa.dfm
 ```
-
-it also includes the new form as a dependency in your dpk project:
+It also includes the new form as a dependency in your dpk file (and dproj, if exists):
 
 ```pascal
 contains
@@ -66,7 +66,7 @@ contains
 ```
 
 ## Generating reports (rit's)
-```bash
+```shell
 yo curio:report RelatorioPessoa
 
 ```
@@ -80,17 +80,22 @@ yo curio:report RelatorioPessoa
 ```
 
 ## Generating search units (suc's) #TODO
-```bash
-yo curio:report sucuPessoa
+```shell
+yo curio:sucu sucuPessoa
 
 ```
 
 ```
+    ├── cli
+    │   └── win
+    │       └── siu
+    │           ├── siuPessoa.pas
+    │           └── siuPessoa.dfm
+    │  
     └── srv
         └── src
             └── sucu
-                ├── sucuPessoa.pas
-                └── sucuPessoa.dfm
+                └── sucuPessoa.pas
 ```
 
 

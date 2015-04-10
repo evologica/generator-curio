@@ -14,7 +14,7 @@ module.exports = yeoman.generators.Base.extend({
 
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the ' + chalk.blue('Conexo') + ' generator!'
+      'Welcome to the ' + chalk.blue('Curio Framework') + ' generator!'
     ));
 
     var prompts = [
@@ -43,13 +43,13 @@ module.exports = yeoman.generators.Base.extend({
 
       // SERVER
 
-      var dprfile = 'srv/src/' + this.context.appname + '.dpr';
+      var dprpath = 'srv/src/' + this.context.appname + '.dpr';
 
-      this.config.set('dprfile', dprfile);
+      this.config.set('dprpath', dprpath);
 
       this.template(
         this.templatePath('srv/src/app.dpr'),
-        this.destinationPath(dprfile),
+        this.destinationPath(dprpath),
         this.context
       );
 
@@ -116,13 +116,15 @@ module.exports = yeoman.generators.Base.extend({
 
       // CLI
 
-      var dpkfile = 'cli/win/' + this.context.appname + '.dpk';
+      var dpkpath = 'cli/win/' + this.context.appname + '.dpk';
+      var dprojpath = 'cli/win/' + this.context.appname + '.dproj';
 
-      this.config.set('dpkfile', dpkfile);
+      this.config.set('dpkpath', dpkpath);
+      this.config.set('dprojpath', dprojpath);
 
       this.template(
         this.templatePath('cli/win/cli.dpk'),
-        this.destinationPath(dpkfile),
+        this.destinationPath(dpkpath),
         this.context
       );
 

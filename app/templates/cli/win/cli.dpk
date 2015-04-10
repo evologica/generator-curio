@@ -22,7 +22,7 @@ package <%= appname %>;
 {$WRITEABLECONST OFF}
 {$MINENUMSIZE 1}
 {$IMAGEBASE $400000}
-{$DESCRIPTION 'Conexo Template'}
+{$DESCRIPTION 'Conexo <%= appname %>'}
 {$RUNONLY}
 {$IMPLICITBUILD ON}
 {$DEFINE RELEASE}

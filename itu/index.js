@@ -56,18 +56,35 @@ module.exports = yeoman.generators.Base.extend({
       this.context
     );
 
-    var dpkfile = this.config.get('dpkfile');
-    var hook = 'contains';
-    var insert = '  ' + ('itu' + this.name) + ' in \'' + 'itu\\itu' + this.name + '.pas' + '\' {' + ('it' + this.name) + '}';
-    
-    this.log(this.destinationPath(dpkfile));
-
     this.conflicter.force = true;
 
-    var file = this.fs.read(this.destinationPath(dpkfile));
+    var dpkPath = this.config.get('dpkpath');
+    var dpkFile = this.fs.read(this.destinationPath(dpkPath));    
+    var dpkHook = 'contains';
+    var dpkDependency = '  ' + ('itu' + this.name) + ' in \'' + 'itu\\itu' + this.name + '.pas' + '\' {' + ('it' + this.name) + '}';
+    
+    this.log(this.destinationPath(dpkPath));
 
-    if (file.indexOf(('itu' + this.name)) === -1) {
-      this.fs.write(this.destinationPath(dpkfile), file.replace(hook, hook +'\n' + insert + ','));
+    if (dpkFile.indexOf(('itu' + this.name)) === -1) {
+      this.fs.write(this.destinationPath(dpkPath), dpkFile.replace(dpkHook, dpkHook +'\n' + dpkDependency + ','));
+    }
+
+    var dprojPath = this.config.get('dprojpath');
+
+    try {
+      var dprojFile = this.fs.read(this.destinationPath(dprojPath));
+    } catch (err) {
+      dprojFile = undefined;
+    }
+    if (dprojFile !== undefined) {
+
+      var dprojHook = '</ItemGroup>';
+      var dprojDependency = ' ' + '<DCCReference Include="itu\\itu' + this.name + '.pas"><Form>it' + this.name + '</Form></DCCReference>';
+
+      if (dprojFile.indexOf(('itu' + this.name)) === -1) {
+        this.fs.write(this.destinationPath(dprojPath), dprojFile.replace(dprojHook, dprojDependency + '\n  ' + dprojHook));
+      }  
+
     }
 
   }
