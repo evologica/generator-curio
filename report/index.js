@@ -1,5 +1,6 @@
 'use strict';
 var yeoman = require('yeoman-generator');
+var utils = require('../lib/utils');
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
@@ -25,10 +26,16 @@ module.exports = yeoman.generators.Base.extend({
       }, 
 
       {
-        name: 'path',
+        name: 'unitpath',
         message: 'Onde deseja gerar unit?',
         default: 'cli/win/itu'
       },            
+
+      {
+        name: 'spspath',
+        message: 'Onde deseja gerar o .sps?',
+        default: 'srv/rel/sps'
+      }, 
 
     ];
 
@@ -42,28 +49,29 @@ module.exports = yeoman.generators.Base.extend({
   writing: function () {
     this.template(
       this.templatePath('ituReport.pas'),
-      this.destinationPath(this.context.path +'/' + 'itu' + this.name + '.pas'),
+      this.destinationPath(this.context.unitpath +'/' + 'itu' + this.name + '.pas'),
       this.context
     );
     
     this.template(
       this.templatePath('ituReport.dfm'),
-      this.destinationPath(this.context.path +'/' + 'itu' + this.name + '.dfm'),
+      this.destinationPath(this.context.unitpath +'/' + 'itu' + this.name + '.dfm'),
       this.context
     );
 
-    var dpkfile = this.config.get('dpkfile');
-    var hook = 'contains';
-    var insert = '  ' + ('itu' + this.name) + ' in \'' + 'itu\\itu' + this.name + '.pas' + '\' {' + ('it' + this.name) + '}';
-    
-    this.log(this.destinationPath(dpkfile));
+    this.template(
+      this.templatePath('template.sps'),
+      this.destinationPath(this.context.spspath +'/' + this.name + '.sps'),
+      this.context
+    );    
 
-    this.conflicter.force = true;
+    var cli = this.config.get('cli');
 
-    var file = this.fs.read(this.destinationPath(dpkfile));
+    utils.addToDpk( this,
+                    this.destinationPath(cli.path + '/' + cli.dpkname), 
+                    'itu' + this.name, 
+                    'itu\\itu' + this.name + '.pas');
 
-    if (file.indexOf(('itu' + this.name)) === -1) {
-      this.fs.write(this.destinationPath(dpkfile), file.replace(hook, hook +'\n' + insert + ','));
-    }
+
   }
 });

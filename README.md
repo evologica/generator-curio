@@ -1,5 +1,11 @@
 # Curió Generator
-
+```
+     ______              _   _   
+    / ____/__  __ _____ (_)_//_ 
+   / /    / / / // ___// // __ \
+  / /___ / /_/ // /   / // /_/ /
+  \____/ \__,_//_/   /_/ \____/                                
+```
 A Yeoman generator to scaffold a Curió framework application.
 
 ## Instalation
@@ -22,6 +28,9 @@ It generates the below structure:
 ├── srv .......................................... backend dev files
 │   ├── mdl ...................................... domain model files
 │   │   └── model.uml
+│   ├── rel ...................................... report files
+│   │   └── sps .................................. StyleVision project files
+│   │   └── xslt ................................. generated xslt files
 │   ├── sql ...................................... sql scripts
 │   │   ├── deploy ............................... deploy scripts
 │   │   └── alter ................................ db evolution scritps
@@ -73,10 +82,14 @@ yo curio:report RelatorioPessoa
 
 ```
     └── cli
-        └── win
-            └── itu
-                ├── ituRelatorioPessoa.pas 
-                └── ituRelatorioPessoa.dfm
+    │   └── win
+    │       └── itu
+    │           ├── ituRelatorioPessoa.pas
+    │           └── ituRelatorioPessoa.dfm
+    └── srv 
+        └── rel
+            └── sps
+                └── RelatorioPessoa.sps                
 ```
 
 ## Generating search units (suc's) #TODO

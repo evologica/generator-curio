@@ -12,10 +12,12 @@ module.exports = yeoman.generators.Base.extend({
 
     var done = this.async();
 
-    // Have Yeoman greet the user.
-    this.log(yosay(
-      'Welcome to the ' + chalk.blue('Curio Framework') + ' generator!'
-    ));
+    this.log(
+      chalk.blue('     ______              _   _   ') + '\n' +
+      chalk.blue('    / ____/__  __ _____ (_)_//_  ') + '\n' + 
+      chalk.blue('   / /    / / / // ___// // __ \\ ') + '\n' +
+      chalk.blue('  / /___ / /_/ // /   / // /_/ / ') + '\n' +
+      chalk.blue('  \\____/ \\__,_//_/   /_/ \\____/ ') + '\n');
 
     var prompts = [
       {
@@ -43,13 +45,16 @@ module.exports = yeoman.generators.Base.extend({
 
       // SERVER
 
-      var dprpath = 'srv/src/' + this.context.appname + '.dpr';
+      var srv = {
+        path: 'srv/src',
+        dprname: this.context.appname
+      };
 
-      this.config.set('dprpath', dprpath);
+      this.config.set('srv', srv);
 
       this.template(
         this.templatePath('srv/src/app.dpr'),
-        this.destinationPath(dprpath),
+        this.destinationPath(srv.path + '/' + srv.dprname + '.dpr'),
         this.context
       );
 
@@ -116,15 +121,16 @@ module.exports = yeoman.generators.Base.extend({
 
       // CLI
 
-      var dpkpath = 'cli/win/' + this.context.appname + '.dpk';
-      var dprojpath = 'cli/win/' + this.context.appname + '.dproj';
+      var cli = {
+        path: 'cli/win/',
+        dpkname: this.context.appname
+      }
 
-      this.config.set('dpkpath', dpkpath);
-      this.config.set('dprojpath', dprojpath);
+      this.config.set('cli', cli);
 
       this.template(
         this.templatePath('cli/win/cli.dpk'),
-        this.destinationPath(dpkpath),
+        this.destinationPath(cli.path + '/' + cli.dpkname + '.dpk'),
         this.context
       );
 

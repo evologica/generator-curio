@@ -1,5 +1,6 @@
 'use strict';
 var yeoman = require('yeoman-generator');
+var utils = require('../lib/utils');
 
 module.exports = yeoman.generators.Base.extend({
 
@@ -56,36 +57,14 @@ module.exports = yeoman.generators.Base.extend({
       this.context
     );
 
+    var cli = this.config.get('cli');
+
     this.conflicter.force = true;
 
-    var dpkPath = this.config.get('dpkpath');
-    var dpkFile = this.fs.read(this.destinationPath(dpkPath));    
-    var dpkHook = 'contains';
-    var dpkDependency = '  ' + ('itu' + this.name) + ' in \'' + 'itu\\itu' + this.name + '.pas' + '\' {' + ('it' + this.name) + '}';
-    
-    this.log(this.destinationPath(dpkPath));
-
-    if (dpkFile.indexOf(('itu' + this.name)) === -1) {
-      this.fs.write(this.destinationPath(dpkPath), dpkFile.replace(dpkHook, dpkHook +'\n' + dpkDependency + ','));
-    }
-
-    var dprojPath = this.config.get('dprojpath');
-
-    try {
-      var dprojFile = this.fs.read(this.destinationPath(dprojPath));
-    } catch (err) {
-      dprojFile = undefined;
-    }
-    if (dprojFile !== undefined) {
-
-      var dprojHook = '</ItemGroup>';
-      var dprojDependency = ' ' + '<DCCReference Include="itu\\itu' + this.name + '.pas"><Form>it' + this.name + '</Form></DCCReference>';
-
-      if (dprojFile.indexOf(('itu' + this.name)) === -1) {
-        this.fs.write(this.destinationPath(dprojPath), dprojFile.replace(dprojHook, dprojDependency + '\n  ' + dprojHook));
-      }  
-
-    }
+    utils.addToDpk( this,
+                    this.destinationPath(cli.path + '/' + cli.dpkname), 
+                    'itu' + this.name, 
+                    'itu\\itu' + this.name + '.pas');
 
   }
 });
