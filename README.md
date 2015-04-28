@@ -93,7 +93,7 @@ yo curio:report RelatorioPessoa
 
 ## Generating search units (suc's)
 ```shell
-yo curio:sucu sucuPessoa
+yo curio:sucu Pessoa
 ```
 ####Generated files:
 ```
