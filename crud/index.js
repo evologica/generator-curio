@@ -87,6 +87,12 @@ module.exports = yeoman.generators.Base.extend({
       this.context
     );
 
+    this.template(
+      this.templatePath('crud.mfg'),
+      this.destinationPath('srv/mdl/' + this.name + '.mfg'),
+      this.context
+    );    
+
     this.conflicter.force = true;
 
     utils.addToDpk( this,

@@ -39,7 +39,7 @@ end;
 
 procedure uc<%= crudname %>.SetTargetObjectsData(piRequest: utRequest);
 begin
-  // Object attributes ---> piRequest Fields
+  // piRequest Fields ---> Object attributes
 end;
 
 procedure uc<%= crudname %>.GetTargetObjectsData(piRequest: utRequest);
