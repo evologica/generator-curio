@@ -9,13 +9,13 @@ module.exports = yeoman.generators.Base.extend({
       type: String,
       desc: 'The subgenerator name'
     });
-
-    this.log('You called the Conexo subgenerator with the argument ' + this.name + '.');
   },
 
   prompting: function () {
 
     var done = this.async();
+
+    this.log(utils.yoCurio('Sucu'));    
 
     var prompts = [
 

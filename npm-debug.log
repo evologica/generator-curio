@@ -1,0 +1,78 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node', '/usr/bin/npm', 'publish' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.38
+4 verbose node symlink /usr/bin/node
+5 verbose publish [ '.' ]
+6 verbose cache add [ '.', null ]
+7 verbose cache add name=undefined spec="." args=[".",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: '.',
+8 verbose parsed url   path: '.',
+8 verbose parsed url   href: '.' }
+9 silly lockFile 3a52ce78- .
+10 verbose lock . /home/pereirazc/.npm/3a52ce78-.lock
+11 verbose tar pack [ '/home/pereirazc/.npm/generator-curio/0.2.10/package.tgz',
+11 verbose tar pack   '.' ]
+12 verbose tarball /home/pereirazc/.npm/generator-curio/0.2.10/package.tgz
+13 verbose folder .
+14 info prepublish generator-curio@0.2.10
+15 silly lockFile 1f1177db-tar tar://.
+16 verbose lock tar://. /home/pereirazc/.npm/1f1177db-tar.lock
+17 silly lockFile 6e2dbfbc-nerator-curio-0-2-10-package-tgz tar:///home/pereirazc/.npm/generator-curio/0.2.10/package.tgz
+18 verbose lock tar:///home/pereirazc/.npm/generator-curio/0.2.10/package.tgz /home/pereirazc/.npm/6e2dbfbc-nerator-curio-0-2-10-package-tgz.lock
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile 1f1177db-tar tar://.
+21 silly lockFile 6e2dbfbc-nerator-curio-0-2-10-package-tgz tar:///home/pereirazc/.npm/generator-curio/0.2.10/package.tgz
+22 silly lockFile 6e2dbfbc-nerator-curio-0-2-10-package-tgz tar:///home/pereirazc/.npm/generator-curio/0.2.10/package.tgz
+23 silly lockFile 29f3d492-m-generator-curio-0-2-10-package /home/pereirazc/.npm/generator-curio/0.2.10/package
+24 verbose lock /home/pereirazc/.npm/generator-curio/0.2.10/package /home/pereirazc/.npm/29f3d492-m-generator-curio-0-2-10-package.lock
+25 silly lockFile 29f3d492-m-generator-curio-0-2-10-package /home/pereirazc/.npm/generator-curio/0.2.10/package
+26 silly lockFile 29f3d492-m-generator-curio-0-2-10-package /home/pereirazc/.npm/generator-curio/0.2.10/package
+27 silly lockFile 3a52ce78- .
+28 silly lockFile 3a52ce78- .
+29 silly publish { name: 'generator-curio',
+29 silly publish   version: '0.2.10',
+29 silly publish   description: 'Yeoman generator for Curió applications',
+29 silly publish   license: 'MIT',
+29 silly publish   main: 'app/index.js',
+29 silly publish   repository:
+29 silly publish    { type: 'git',
+29 silly publish      url: 'https://github.com/conexo/generator-curio' },
+29 silly publish   author:
+29 silly publish    { name: 'Conexo',
+29 silly publish      email: 'conexo@conexops.com.br',
+29 silly publish      url: 'https://github.com/conexo' },
+29 silly publish   scripts: { test: 'mocha' },
+29 silly publish   files: [ 'app', 'itu', 'lib', 'sucu', 'report' ],
+29 silly publish   keywords: [ 'yeoman-generator' ],
+29 silly publish   dependencies:
+29 silly publish    { 'yeoman-generator': '^0.19.0',
+29 silly publish      chalk: '^1.0.0',
+29 silly publish      yosay: '^1.0.2' },
+29 silly publish   devDependencies: { mocha: '*' },
+29 silly publish   readme: '# Curió Generator\n```\n     ______              _   _   \n    / ____/__  __ _____ (_)_//_ \n   / /    / / / // ___// // __ \\\n  / /___ / /_/ // /   / // /_/ /\n  \\____/ \\__,_//_/   /_/ \\____/                                \n```\nA Yeoman generator to scaffold a Curió framework application.\n\n## Instalation\n\n```shell\nnpm install -g yo\nnpm install -g generator-curio\n```\n\n## Generating a new Curió Application\n```shell\nmkdir app\ncd app\nyo curio\n```\n\nIt generates the below structure:\n\n```\n├── srv .......................................... backend dev files\n│   ├── mdl ...................................... domain model files\n│   │   └── model.uml\n│   ├── rel ...................................... report files\n│   │   └── sps .................................. StyleVision project files\n│   │   └── xslt ................................. generated xslt files\n│   ├── sql ...................................... sql scripts\n│   │   ├── deploy ............................... deploy scripts\n│   │   └── alter ................................ db evolution scritps\n│   └── src ...................................... backend source code\n│       ├── ngu .................................. business class units\n│       │   └── nguVersaoBanco.pas   \n│       ├── ucu .................................. use case units\n│       │   └── ucuAppMain.pas\n│       ├── lib\n│       │   └── acuRegisterModelMappings.pas ..... model-to-code mapping\n│       ├── app.dpr .............................. delphi main project\n│       ├── svuApp.pas\n│       ├── svuApp.dfm\n│       ├── mainmenu.xml ......................... win32 GUI menu design\n│       └── VersionInfo.rc .......................\n└── cli .......................................... front-end dev files\n    └── win ...................................... front-end win32 source code\n        ├── itu .................................. interface form units\n        │   └── ituAppMain.pas\n        └── App.dpk .............................. delphi win32 main project \n\n```\n\n## Generating form interfaces (it\'s)\n```shell\nyo curio:itu CadastrarPessoa\n```\n\n```\n    └── cli\n        └── win\n            └── itu\n                ├── ituCadastrarPessoa.pas \n                └── ituCadastrarPessoa.dfm\n```\nIt also includes the new form as a dependency in your dpk file (and dproj, if exists):\n\n```pascal\ncontains\n    ituCadastrarPessoa in \'itu\\ituCadastrarPessoa.pas\' {itCadastrarPessoa},\n    ...\n```\n\n## Generating reports (rit\'s)\n```shell\nyo curio:report RelatorioPessoa\n\n```\n\n```\n    └── cli\n    │   └── win\n    │       └── itu\n    │           ├── ituRelatorioPessoa.pas\n    │           └── ituRelatorioPessoa.dfm\n    └── srv \n        └── rel\n            └── sps\n                └── RelatorioPessoa.sps                \n```\n\n## Generating search units (suc\'s) #TODO\n```shell\nyo curio:sucu sucuPessoa\n\n```\n\n```\n    ├── cli\n    │   └── win\n    │       └── siu\n    │           ├── siuPessoa.pas\n    │           └── siuPessoa.dfm\n    │  \n    └── srv\n        └── src\n            └── sucu\n                └── sucuPessoa.pas\n```\n\n\n',
+29 silly publish   readmeFilename: 'README.md',
+29 silly publish   gitHead: '4f1994e3485f7e2c9478fdddb68ceaf34b4d6004',
+29 silly publish   bugs: { url: 'https://github.com/conexo/generator-curio/issues' },
+29 silly publish   homepage: 'https://github.com/conexo/generator-curio',
+29 silly publish   _id: 'generator-curio@0.2.10',
+29 silly publish   _shasum: '254fb590fb67197b2cd564829642d30f26007f09',
+29 silly publish   _from: '.' }
+30 error need auth auth and email required for publishing
+30 error need auth You need to authorize this machine using `npm adduser`
+31 error System Linux 3.13.0-32-generic
+32 error command "/usr/bin/node" "/usr/bin/npm" "publish"
+33 error cwd /home/pereirazc/devel/github/conexo/generator-curio
+34 error node -v v0.10.38
+35 error npm -v 1.4.28
+36 error code ENEEDAUTH
+37 verbose exit [ 1, true ]

@@ -1,7 +1,7 @@
 'use strict';
 var yeoman = require('yeoman-generator');
 var chalk = require('chalk');
-var yosay = require('yosay');
+var utils = require('../lib/utils');
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
@@ -12,17 +12,19 @@ module.exports = yeoman.generators.Base.extend({
 
     var done = this.async();
 
-    this.log(
-      chalk.blue('     ______              _   _   ') + '\n' +
-      chalk.blue('    / ____/__  __ _____ (_)_//_  ') + '\n' + 
-      chalk.blue('   / /    / / / // ___// // __ \\ ') + '\n' +
-      chalk.blue('  / /___ / /_/ // /   / // /_/ / ') + '\n' +
-      chalk.blue('  \\____/ \\__,_//_/   /_/ \\____/ ') + '\n');
+    this.log(utils.yoCurio('App'));
 
     var prompts = [
       {
         name: 'appname',
         message: 'Qual o nome da aplicação?',
+        validate: function (appname) {
+          if (appname !== undefined && appname !== null && appname !== '') {
+            return true;
+          } else {
+            return 'Informar o nome da aplicação é obrigatório';
+          }
+        }        
       },
       {
         name: 'port',

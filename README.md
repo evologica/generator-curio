@@ -58,7 +58,7 @@ It generates the below structure:
 ```shell
 yo curio:itu CadastrarPessoa
 ```
-
+####Generated files:
 ```
     └── cli
         └── win
@@ -77,9 +77,8 @@ contains
 ## Generating reports (rit's)
 ```shell
 yo curio:report RelatorioPessoa
-
 ```
-
+####Generated files:
 ```
     └── cli
     │   └── win
@@ -92,12 +91,11 @@ yo curio:report RelatorioPessoa
                 └── RelatorioPessoa.sps                
 ```
 
-## Generating search units (suc's) #TODO
+## Generating search units (suc's)
 ```shell
 yo curio:sucu sucuPessoa
-
 ```
-
+####Generated files:
 ```
     ├── cli
     │   └── win
@@ -111,4 +109,28 @@ yo curio:sucu sucuPessoa
                 └── sucuPessoa.pas
 ```
 
+## Generating CRUD units (suc's)
+```shell
+yo curio:crud CadastroLivro
+
+? Qual o nome da classe (sem ng) do CRUD? Livro
+? Qual o código da GUI? 908
+? Onde deseja gerar a itu? cli/win/itu
+? Qual o código do Caso de Uso? 2370
+? Onde deseja gerar a ucu? srv/src/ucu
+```
+
+####Generated files:
+```
+    ├── cli
+    │   └── win
+    │       └── itu
+    │           ├── ituCadastroLivro.pas
+    │           └── ituCadastroLivro.dfm
+    │  
+    └── srv
+        └── src
+            └── ucu
+                └── ucuCadastroLivro.pas
+```
 
