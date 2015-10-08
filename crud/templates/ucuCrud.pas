@@ -8,18 +8,19 @@ uses
 type
   uc<%= crudname %> = class(ucUseCase)
   private
-    fObjeto: ng<%= classname %>;
+    f<%= classname %>: ng<%= classname %>;
     procedure GetTargetObjectsData(piRequest: utRequest);
     procedure SetTargetObjectsData(piRequest: utRequest);
   public
     procedure Initialize; Override;
     procedure Finalize; Override;
   published
-    procedure EFFECT_IncluiObjeto     (piRequest: utRequest; piTransition: utTransition);
-    procedure EFFECT_ExcluiObjeto     (piRequest: utRequest; piTransition: utTransition);
-    procedure EFFECT_EditaObjeto      (piRequest: utRequest; piTransition: utTransition);
-    procedure Effect_ConsultaObjeto   (piRequest: utRequest; piTransition: utTransition);
-    procedure EFFECT_SalvaObjeto      (piRequest: utRequest; piTransition: utTransition);
+    procedure EFFECT_ObtemContexto(piRequest: utRequest; piTransition: utTransition);
+    procedure EFFECT_IncluiObjeto(piRequest: utRequest; piTransition: utTransition);
+    procedure EFFECT_ExcluiObjeto(piRequest: utRequest; piTransition: utTransition);
+    procedure EFFECT_EditaObjeto(piRequest: utRequest; piTransition: utTransition);
+    procedure Effect_ConsultaObjeto(piRequest: utRequest; piTransition: utTransition);
+    procedure EFFECT_SalvaObjeto(piRequest: utRequest; piTransition: utTransition);
   end;
 
 implementation
@@ -47,11 +48,16 @@ begin
   // piRequest Fields <--- Object attributes
 end;
 
+procedure uc<%= crudname %>.EFFECT_ObtemContexto(piRequest: utRequest; piTransition: utTransition);
+begin
+  piRequest.Processed := True;
+end;
+
 procedure uc<%= crudname %>.EFFECT_IncluiObjeto(piRequest: utRequest; piTransition: utTransition);
 begin
   if (not Self.HasPermission(CP_NEW_PERMISSION))
     then raise EucException.Create(gutApplicationMessages.Get('PERMISSAO_INCLUSAO_NEGADA',[]));
-  fObjeto := ng<%= classname %>.CreateNew(self.Session);
+  f<%= classname %> := ng<%= classname %>.CreateNew(self.Session);
   GetTargetObjectsData(piRequest);
   piRequest.Processed := True;
 end;
@@ -69,13 +75,13 @@ begin
     begin
       lIDO  := piRequest.Message.Fields.FieldByName('OBJECTID').AsInteger;
       try
-        fObjeto := self.Session.LoadObject(ng<%= classname %>, acOIDInt.Create(lIDO)) as ng<%= classname %>;
+        f<%= classname %> := self.Session.LoadObject(ng<%= classname %>, acOIDInt.Create(lIDO)) as ng<%= classname %>;
       except
         raise EucException.Create(gutApplicationMessages.Get('OBJETO_NAO_ENCONTRADO',[]));
       end;
-      if not Assigned(fObjeto)
+      if not Assigned(f<%= classname %>)
         then raise EucException.Create(gutApplicationMessages.Get('OBJETO_NAO_ENCONTRADO',[]));
-      self.Session.DeleteObject(fObjeto);
+      self.Session.DeleteObject(f<%= classname %>);
       self.Session.Save;
     end
     else raise EucException.Create(gutApplicationMessages.Get('OBJECTID_NAO_INFORMADO',[]));
@@ -97,11 +103,11 @@ begin
   begin
     lIDO := piRequest.Message.Fields.FieldByName('OBJECTID').AsInteger;
     try
-      fObjeto := self.Session.LoadObject(ng<%= classname %>, acOIDInt.Create(lIDO)) as ng<%= classname %>;
+      f<%= classname %> := self.Session.LoadObject(ng<%= classname %>, acOIDInt.Create(lIDO)) as ng<%= classname %>;
     except
       raise EucException.Create(gutApplicationMessages.Get('OBJETO_NAO_ENCONTRADO',[]));
     end;
-    if not Assigned(fObjeto) then
+    if not Assigned(f<%= classname %>) then
       raise EucException.Create(gutApplicationMessages.Get('OBJETO_NAO_ENCONTRADO',[]));
     GetTargetObjectsData(piRequest);
   end
@@ -121,11 +127,11 @@ begin
   begin
     lIDO := piRequest.Message.Fields.FieldByName('OBJECTID').AsInteger;
     try
-      fObjeto := self.Session.LoadObject(ng<%= classname %>, acOIDInt.Create(lIDO)) as ng<%= classname %>;
+      f<%= classname %> := self.Session.LoadObject(ng<%= classname %>, acOIDInt.Create(lIDO)) as ng<%= classname %>;
     except
       raise EucException.Create(gutApplicationMessages.Get('OBJETO_NAO_ENCONTRADO',[]));
     end;
-    if not Assigned(fObjeto) then
+    if not Assigned(f<%= classname %>) then
       raise EucException.Create(gutApplicationMessages.Get('OBJETO_NAO_ENCONTRADO',[]));
     GetTargetObjectsData(piRequest);
   end

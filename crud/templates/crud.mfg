@@ -211,7 +211,7 @@
 <XPD:OBJ name="NameLabel" type="EdgeLabelView" guid="TDJB2F20AkGL3HT0ymWP8QAA">
 <XPD:ATTR name="Alpha" type="real">0,184542773139767</XPD:ATTR>
 <XPD:ATTR name="Distance" type="real">76,2954782408499</XPD:ATTR>
-<XPD:ATTR name="Text" type="string">RM_OBTEM_CONTEXTO / EFFECT_MontaContexto</XPD:ATTR>
+<XPD:ATTR name="Text" type="string">RM_OBTEM_CONTEXTO / EFFECT_ObtemContexto</XPD:ATTR>
 <XPD:REF name="Model">nVNrFfXPCEa75r0nmMxqxwAA</XPD:REF>
 </XPD:OBJ>
 <XPD:OBJ name="StereotypeLabel" type="EdgeLabelView" guid="y8KHPhg5mUawdTB80TXzoAAA">
@@ -594,7 +594,7 @@
 </XPD:OBJCOLL>
 <XPD:OBJCOLL name="Effects">
 <XPD:OBJ name="Effects" type="UMLUninterpretedAction" guid="YglvWg6CrUiVkFAccfqJMQAA">
-<XPD:ATTR name="Name" type="string">EFFECT_MontaContexto</XPD:ATTR>
+<XPD:ATTR name="Name" type="string">EFFECT_ObtemContexto</XPD:ATTR>
 <XPD:REF name="Transition">nVNrFfXPCEa75r0nmMxqxwAA</XPD:REF>
 </XPD:OBJ>
 </XPD:OBJCOLL>

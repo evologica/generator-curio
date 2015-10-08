@@ -51,7 +51,7 @@ begin
   Screen.Cursor := crHourGlass;
   Self.InterfaceForm := Tit<%= crudname %>.Create(Application);
   Tit<%= crudname %>(Self.InterfaceForm).sbNovo.Visible := False;
-  Self.InterfaceForm.Show;
+  NewRequest('RM_OBTEM_CONTEXTO', SendToInterface).Post;
 end;
 
 //Saves GUI state to Object
@@ -73,6 +73,7 @@ end;
 procedure it<%= crudname %>.SendToInterface(piRequest: acRequest);
 begin
   inherited;
+  Self.InterfaceForm.Show;
 end;
 
 initialization
