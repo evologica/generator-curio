@@ -24,13 +24,26 @@ module.exports = yeoman.generators.Base.extend({
           } else {
             return 'Informar o nome da aplicação é obrigatório';
           }
-        }        
+        }
       },
+
+      {
+        name: 'appdescr',
+        message: 'Qual a descrição da aplicação?',
+        validate: function (description) {
+          if (description !== undefined && description !== null && description !== '') {
+            return true;
+          } else {
+            return 'Informar uma descrição da aplicação é obrigatório';
+          }
+        }
+      },
+
       {
         name: 'port',
         message: 'Qual a porta padrão do serviço?',
         default: 0
-      },            
+      },
 
     ];
 
@@ -53,6 +66,12 @@ module.exports = yeoman.generators.Base.extend({
       };
 
       this.config.set('srv', srv);
+
+      this.template(
+        this.templatePath('bin/app.config'),
+        this.destinationPath('bin/' + this.context.appname + '.config'),
+        this.context
+      );
 
       this.template(
         this.templatePath('srv/src/app.dpr'),
@@ -95,15 +114,9 @@ module.exports = yeoman.generators.Base.extend({
         this.context
       );
 
-
       this.directory(
         this.templatePath('/srv/src/ngu'),
         this.destinationPath('/srv/src/ngu')
-      ); 
-
-      this.directory(
-        this.templatePath('/srv/src/lib'),
-        this.destinationPath('/srv/src/lib')
       );
 
       this.directory(
@@ -112,13 +125,18 @@ module.exports = yeoman.generators.Base.extend({
       );
 
       this.directory(
-        this.templatePath('/srv/mdl'),
-        this.destinationPath('/srv/mdl')
+        this.templatePath('/srv/src/lib'),
+        this.destinationPath('/srv/src/lib')
       );
 
       this.directory(
-        this.templatePath('/srv/sql'),
-        this.destinationPath('/srv/sql')
+        this.templatePath('/mdl'),
+        this.destinationPath('/mdl')
+      );
+
+      this.directory(
+        this.templatePath('/sql'),
+        this.destinationPath('/sql')
       );
 
       // CLI
